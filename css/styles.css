@@ -113,7 +113,7 @@ p {
   line-height: 1.1;
   text-decoration: none;
 
-  transition-property: background-color, color;
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -150,7 +150,7 @@ p {
   font-style: normal;
   text-decoration: none;
 
-  transition-property: background-color, color;
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -192,14 +192,6 @@ p {
   background-size: cover;
 }
 
-.primary-button-order:hover,
-.primary-button-order:focus,
-.portfolio-button .button-order:hover,
-.portfolio-button .button-order:focus {
-  color: var(--text-btn-color);
-  background: var(--accent-color);
-}
-
 .primary-button-order {
   padding: 10px 32px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -218,21 +210,10 @@ p {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-button .button-order {
-  font-family: 'Roboto', sans-serif;
-  color: var(--title-text-color);
-  background-color: var(--btn-fon-color);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.6;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 0;
-  padding: 6px 22px;
-
-  transition-property: background-color, color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.primary-button-order:hover,
+.primary-button-order:focus {
+  color: var(--text-btn-color);
+  background: var(--accent-color);
 }
 
 .primary-title {
@@ -301,6 +282,7 @@ p {
   line-height: 1.2;
   letter-spacing: 0.03em;
 }
+
 .block-subtitle-img {
   display: flex;
 }
@@ -457,7 +439,7 @@ p {
   color: var(--icon-fon-color);
   border-radius: 4px;
 
-  transition-property: background-color, color;
+  transition-property: border-color, color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -545,7 +527,7 @@ p {
   color: var(--text-btn-color);
   background-color: rgba(255, 255, 255, 0.1);
 
-  transition-property: background-color, color;
+  transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -571,21 +553,34 @@ p {
   margin-bottom: 50px;
 }
 
-.portfolio-button .item {
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .portfolio-button > .item:not(:last-child) {
   margin-right: 8px;
 }
 
-.portfolio-button .item:hover,
-.portfolio-button .item:focus {
+.portfolio-button .button-order {
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 0;
+  padding: 6px 22px;
+  color: var(--title-text-color);
+  background-color: var(--btn-fon-color);
+
+  transition-property: background-color, box-shadow, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-button .button-order:hover,
+.portfolio-button .button-order:focus {
+  color: var(--text-btn-color);
+  background: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 .portfolio-container {
@@ -597,15 +592,6 @@ p {
   width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
-
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.portfolio-container .item:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-container .item:nth-child(3n) {
@@ -616,13 +602,30 @@ p {
   margin-bottom: 0;
 }
 
-.block-subtitle-img {
+.link-subtitle-img {
+  display: block;
+  text-decoration: none;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-subtitle-img:hover,
+.link-subtitle-img:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.link-subtitle-img .overlay-image {
   position: relative;
   overflow: hidden;
 }
 
 .subtitle-img-text {
   position: absolute;
+  bottom: 0;
+  right: 0;
   font-size: 18px;
   line-height: 28px;
   padding: 63px 24px;
@@ -632,11 +635,14 @@ p {
   cursor: pointer;
 
   opacity: 0;
+
   transform: translateY(100%);
+  transition: opacity 250ms linear;
   transition: transform 250ms linear;
 }
 
-.portfolio-container .item:hover .subtitle-img-text {
+.portfolio-container .link-subtitle-img:hover .subtitle-img-text,
+.portfolio-container .link-subtitle-img:focus .subtitle-img-text {
   opacity: 1;
   transform: translateY(0);
 }
@@ -645,13 +651,14 @@ p {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  color: var(--title-text-color);
 }
 
 .portfolio-specialty {
   font-size: 16px;
   line-height: 1.9;
-  color: var(--subtitle-text-color);
   letter-spacing: 0.03em;
+  color: var(--subtitle-text-color);
 }
 
 .item-text {
@@ -659,7 +666,12 @@ p {
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
-  cursor: pointer;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .backdrop {
@@ -670,12 +682,10 @@ p {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms linear;
 }
 
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
 .modal {
   position: absolute;
   top: 50%;
@@ -687,6 +697,8 @@ p {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: visibility 250ms linear;
 }
 
 .exit-modal {
